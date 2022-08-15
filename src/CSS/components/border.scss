@@ -1,0 +1,11 @@
+@for $i from 1 through 5 {
+    .border-pink-#{$i}px {
+        @include border-pink(#{$i}px);
+    }
+}
+
+@for $i from 1 through 5 {
+    .border-skyBlue-#{$i}px {
+        @include border-skyBlue(#{$i}px);
+    }
+}

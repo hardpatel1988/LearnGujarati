@@ -1,0 +1,101 @@
+.boxes{
+    display: flex;
+    text-align: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px 0;    
+    position: relative;
+    z-index: 2;
+
+    @include breakpoint("medium"){
+        margin: 50px 0;
+    }
+
+    @include breakpoint("large"){
+        margin: 75px 0;
+    }
+
+    &__item{
+        margin: 40px 40px; 
+        width: calc(100% - 80px);
+        flex: 0 0 calc(100% - 80px);
+        position: relative;
+
+        @include breakpoint("small"){
+            margin: 40px 40px;
+            width: calc(50% - 80px);
+            flex: 0 0 calc(50% - 80px);
+        }
+
+        @include breakpoint("medium"){
+            margin: 40px 40px;
+            width: calc(50% - 80px);
+            flex: 0 0 calc(50% - 80px);
+            max-width: 365px; 
+        }
+        
+        @include breakpoint("large"){
+            margin: 50px 40px;
+            width: calc(25% - 80px);
+            flex: 0 0 calc(25% - 80px); 
+        }
+
+        a{
+            display: block;     
+            transition: 0.35s ease-out;
+            
+            &:hover{
+                transform: translateY(15px);
+
+                & + .boxes__teacher-char, & + .boxes__alphabate-char{
+                    transform: translateY(15px);
+                }
+            }
+
+            img{
+                max-width: 100%;
+                width: 100%;
+                border-radius: 8%;
+                border: #fff 2px solid;
+    
+                box-shadow: 1px 0px 36px -1px rgb(0 0 0 / 75%);
+                -webkit-box-shadow: 1px 0px 36px -1px rgb(0 0 0 / 75%);
+                -moz-box-shadow: 1px 0px 36px -1px rgb(0 0 0 / 75%);
+            }
+        }
+
+        
+    }
+
+    &__alphabate-char{
+        width: 72%;
+        position: absolute;
+        top: -22px;
+        right: -9%;
+        transition: 0.35s ease-out;
+        pointer-events: none; 
+        
+        @include breakpoint("small"){
+            width: 74%;
+            position: absolute;
+            top: -22px;
+            right: -17%;
+        }
+
+        img{
+            width: 100%;
+        }
+    }
+
+    &__teacher-char{
+        width: 29%;
+        position: absolute;
+        top: -12%;
+        right: 17%;
+        transition: 0.35s ease-out;
+        img{
+            width: 100%;
+        }
+    }
+}

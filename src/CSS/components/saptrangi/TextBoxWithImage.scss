@@ -1,0 +1,178 @@
+@mixin SaptrangiSetColor($color) {
+    $parent : &;
+
+    -webkit-box-shadow: 10px 9px 0px 0px lighten( $color, 20% );
+    -moz-box-shadow: 10px 9px 0px 0px lighten( $color, 20% );
+    box-shadow: 10px 9px 0px 0px lighten( $color, 20% );
+
+    .SaptrangiTextBox__title{
+        color: $color;
+    }
+    
+}
+
+.SaptrangiTextBox{
+    $parent : &;
+
+    background: #fff;
+    padding: 50px;
+    display: flex;
+    //border-radius: 100%/0 0 30px 30px;
+    border-radius: 50px;
+    flex-direction: column;
+
+    @include breakpoint("small"){
+       flex-direction: row;
+    }
+
+    &__title{
+        color: #007bff;
+        font-size: 40px;
+        margin-bottom: 30px;
+
+        @include breakpoint("medium"){
+            font-size: 60px;
+        }
+    }
+
+    &__text{
+        flex: 0 0 100%;
+
+        @include breakpoint("small"){
+            flex: 0 0 50%;
+        }
+
+        p{
+            font-size: 24px;
+            line-height: 1.5;
+
+            @include breakpoint("medium"){
+                font-size: 40px;
+            }
+        }
+    }
+
+    &__img{
+        flex: 0 0 100%;
+
+        @include breakpoint("small"){
+            flex: 0 0 40%;
+        }
+
+        .TextBoxWithImage__img{
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        img{
+            max-width: 300px;
+            margin: 20px;
+
+            @include breakpoint("small"){
+                max-width: 100%;
+             }
+        }
+    }
+
+    &--blue{
+        @include SaptrangiSetColor($blue);
+    }
+
+    &--orrange{
+        @include SaptrangiSetColor($orrange);
+    }
+
+    &--violet{
+        @include SaptrangiSetColor($violet);
+    }
+
+    &--green{
+        @include SaptrangiSetColor($green);
+    }
+}
+
+.TextBoxWithImage{
+    $p: &;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    @include breakpoint("small"){
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+    }
+
+    &__bg{
+        background: url(../../../images/saptrangi/text-box-grass-bg.png);
+        background-repeat: no-repeat;
+        background-position: bottom;
+
+        .TextBoxWithImage{
+            flex-direction: column-reverse;
+
+            @include breakpoint("small"){
+                flex-direction: row;
+            }
+
+            &__img, &__text{
+                margin-bottom: 40px;
+            }
+        }
+    }
+
+    &__text{
+        flex: 0 0 100%;
+        width: 100%;
+
+        @include breakpoint("small"){
+            flex: 0 0 50%;
+            width: 50%;
+        }
+    }
+
+    &__img{
+        flex: 0 0 100%;
+        padding: 0 100px;    
+        margin-bottom: 30px;
+        
+        @include breakpoint("small"){
+            flex: 0 0 50%;
+            width: 50%;
+            margin-bottom: 0;
+        }
+
+        img{
+            max-width: 100%;
+            width: 100%
+        }
+
+        &--30{
+            @include breakpoint("medium"){
+                flex: 0 0 30%;
+                width: 30%;
+            }
+        }
+
+        &--40{
+            @include breakpoint("medium"){
+                flex: 0 0 40%;
+                width: 40%;
+            }
+        }
+    }
+
+    &--left{
+        #{$p}__text{
+            @include breakpoint("small"){
+                order: 1;
+            }
+        }
+        #{$p}__img{
+            @include breakpoint("small"){
+                order: 2;
+            }
+        }
+    }
+}

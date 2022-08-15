@@ -1,0 +1,66 @@
+h1{
+    color: #000; 
+}
+.text-violet{
+    color: #490a79;
+
+    &:hover{
+        color: lighten(#490a79, 15%);
+    }
+}
+.text-green{
+    color: #006f37;
+
+    &:hover{
+        color: lighten(#006f37, 15%);
+    }
+}
+.text-parrot-green{
+    color: #188918;
+
+    &:hover{
+        color: lighten(#188918, 15%);
+    }
+}
+.text-yellow{
+    color: #c46f1a;
+
+    &:hover{
+        color: lighten(#c46f1a, 15%);
+    }
+}
+.text-gray{
+    color: #3c3c3c;
+
+    &:hover{
+        color: lighten(#3c3c3c, 15%);
+    }
+}
+.text-blue{
+    color: #002972;
+
+    &:hover{
+        color: lighten(#002972, 15%);
+    }
+}
+.text-sky-blue{
+    color: #006fff;
+
+    &:hover{
+        color: lighten(#006fff, 15%);
+    }
+}
+.text-red{
+    color: #c10000;
+
+    &:hover{
+        color: lighten(#c10000, 15%);
+    }
+}
+.text-pink{
+    color: #ff004a;
+
+    &:hover{
+        color: lighten(#ff004a, 15%);
+    }
+}

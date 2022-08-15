@@ -1,0 +1,48 @@
+.story__section{
+    position: relative;
+}
+
+.stories{
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+
+    &__background{
+        height: 100vh;
+        width: 40vw;
+        position: absolute;
+        left: 0;    
+        background-image: url(#{$imagePath}story-1.jpg);
+        background-repeat: no-repeat; 
+        background-position: center center;  
+        transition: all 0.5s ease-out;
+
+        &.fixed{
+            position: fixed;
+            top:0;
+        }
+
+        &.bottom{
+            position: absolute;
+            bottom: 0;
+            top: auto;
+        }
+
+        &:hover{
+            transform: scale(1.2);
+        }
+    }
+
+    &__content{
+        min-height: 100vh;
+        flex: 0 0 55%;
+        padding: 100px 0;
+        box-sizing: border-box;
+        line-height: 1.5;
+
+        p{
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
+    }
+}

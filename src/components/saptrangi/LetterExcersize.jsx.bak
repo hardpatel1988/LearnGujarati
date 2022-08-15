@@ -1,0 +1,350 @@
+import React, {useEffect} from "react";
+import Image from "components/Image";
+import gsap from "gsap";
+import Draggable from "gsap/dist/Draggable";
+import { Back } from "gsap/dist/gsap";
+import $ from "jquery";
+
+const LetterExcersize = (prop) => {
+    const title = prop.data.title;
+    const exrsize = prop.data.excersize;
+
+    useEffect(() => {
+        gsap.registerPlugin(Draggable);
+        
+        var body  = $("body")[0];
+        var ease  = Back.easeOut.config(0.5);
+        var tiles = [];
+        var zones = [];
+
+        var tileData = "જમનર".split("");
+
+        var zoneData = [
+            { id: "zone-1", grid: true,  color: "#C71585", threshold: "60%",  sortProp: "value" },
+            { id: "zone-2", grid: true,  color: "#2E8B57", threshold: "60%",  sortProp: null },
+            { id: "excersize_1", grid: true,  color: "#2E8B57", threshold: "60%",  sortProp: null },
+            //{ id: "zone-3", grid: false, color: "#6495ED", threshold: "100%", sortProp: null }
+        ];
+
+        //
+        // DROP ZONE
+        // ========================================================================
+        class DropZone {
+        
+            constructor(config) {
+                    
+                $.extend(this, config);
+                
+                this.element = $("#" + this.id)[0];    
+                this.parent  = this.element.parentNode;    
+                this.tiles   = [];
+            }
+            
+            addTile(tile) {
+                
+                var index = this.tiles.indexOf(tile);
+                if (index > -1) return;
+                
+                this.tiles.push(tile);
+                this.element.appendChild(tile.element);
+                this.updateTiles();
+                tile.updatePosition(this.grid);
+                this.layoutTiles();    
+            }
+            
+            removeTile(tile) {
+                
+                var index = this.tiles.indexOf(tile);    
+                if (index < 0) return;
+                
+                this.tiles.splice(index, 1);
+                this.element.removeChild(tile.element);
+                this.updateTiles();
+                this.layoutTiles();
+            }
+                
+            updateTiles() {
+                
+                if (this.sortProp) {
+                this.sortTiles();
+                this.tiles.forEach(tile => this.element.appendChild(tile.element));
+                }
+            }
+            
+            layoutTiles() {
+                this.tiles.forEach(tile => tile.layout());
+            }
+            
+            sortTiles() {
+                
+                this.tiles.sort((left, right) => {
+                    var a = left[this.sortProp];
+                    var b = right[this.sortProp];
+                    if (a !== b) {
+                        if (a > b || a === void 0) return 1;
+                        if (a < b || b === void 0) return -1;
+                    }
+                    return left.index - right.index;
+                });
+            }
+        }
+
+        //
+        // TILE
+        // ========================================================================
+        class Tile {
+            
+            constructor(config) {    
+                
+                this.x    = 0;
+                this.y    = 0;
+                this.left = 0;
+                this.top  = 0;
+                
+                $.extend(this, config);   
+                
+                this.element = $(`<div id="${this.id}" class="tile">${this.value}</div>`)[0];
+                this.zone.element.appendChild(this.element);
+                
+                this.clone = this.element.cloneNode(true);    
+                this.clone.classList.add("clone");
+                
+                this.lastZone = this.zone;   
+                    
+                gsap.set([this.element, this.clone], { x: "+=0" });
+                    
+                this.draggable = new Draggable(this.clone, {
+                    onDrag: this.onDrag,
+                    onRelease: this.stopDraggable,
+                    callbackScope: this
+                }).disable();
+                
+                this.zone.addTile(this);
+                    
+                $(this.element).on("mousedown touchstart", this.startDraggable.bind(this));
+            }
+            
+            startDraggable(event) {    
+                event.preventDefault();
+                    
+                var position = getPosition(this.element);
+                
+                body.appendChild(this.clone);
+                gsap.set(this.clone, { x: position.x, y: position.y, backgroundColor: this.zone.color });    
+                gsap.set(this.element, { autoAlpha: 0, zIndex: Draggable.zIndex + 1 });
+                    
+                this.draggable.enable();
+                this.draggable.update();
+                this.draggable.startDrag(event);
+            }
+            
+            stopDraggable(event) {
+                
+                this.draggable.disable();
+                
+                gsap.set(this.element, { left: 0, top: 0 });
+                
+                var orphaned = zones.every(zone => !this.hitTest(zone));       
+                if (orphaned && !this.isGrid) {
+                    gsap.set(this.element, { left: this.left, top: this.top });
+                }
+                
+                if (!this.zone) {     
+                
+                this.zone = this.lastZone;
+                
+                zones.forEach(zone => {        
+                    if (this.hitTest(zone)) this.zone = zone;
+                });      
+                }
+                
+                this.zone.addTile(this);    
+                
+                var offset = this.getOffset();        
+                var config = {
+                backgroundColor: this.zone.color,
+                    onComplete: () => {
+                        body.removeChild(this.clone);
+                        gsap.set(this.element, { autoAlpha: 1 });
+                    },
+                    duration: 0.3
+                };
+                
+                if (orphaned && !this.isGrid) {
+                            
+                config.x = "-=" + offset.x;
+                config.y = "-=" + offset.y;
+                    
+                } else if (!this.isGrid) {     
+                
+                var rect  = this.zone.element.getBoundingClientRect();
+                this.left = `${offset.x / rect.width  * 100}%`;
+                this.top  = `${offset.y / rect.height * 100}%`;
+                
+                gsap.set(this.element, { left: this.left, top: this.top });
+                        
+                } else {            
+                    gsap.set(this.element, { left: 0, top: 0 });      
+                    config.x = "-=" + offset.x;
+                    config.y = "-=" + offset.y;
+                }
+                    
+                gsap.to(this.clone,config);     
+                
+                logTiles();
+            }
+                
+            layout() {
+                
+                if (!this.isGrid) return;
+                
+                //var transform = this.element._gsTransform;
+                var transform = gsap.getProperty(this.element);    
+                
+                var lastX = this.x;
+                var lastY = this.y;
+                
+                this.x = this.element.offsetLeft;
+                this.y = this.element.offsetTop;
+                    
+                var dx = transform.x + lastX - this.x;
+                var dy = transform.y + lastY - this.y; 
+                
+                gsap.fromTo(this.element, { x: dx, y: dy }, { x: 0, y: 0, ease: ease, duration:0.5 });
+            }
+            
+            onDrag() {
+                
+                if (this.zone) {
+                
+                if (this.zone && !this.hitTest(this.zone, 0)) {
+                        this.lastZone = this.zone;
+                        this.zone.removeTile(this);
+                        this.zone = null;
+                    }
+                }    
+            }
+            
+            getOffset() {
+                var position1 = getPosition(this.clone);
+                var position2 = getPosition(this.zone.element);
+                
+                return {
+                    x: position1.x - position2.x - this.element.offsetLeft,
+                    y: position1.y - position2.y - this.element.offsetTop
+                };
+            }
+            
+            hitTest(zone, threshold) {
+                var overlap = threshold != null ? threshold : zone.threshold;
+                return Draggable.hitTest(this.clone, zone.parent, overlap);
+            }
+            
+            updatePosition(isGrid) {
+                
+                this.x = this.element.offsetLeft;
+                this.y = this.element.offsetTop;
+                
+                this.isGrid = isGrid;
+            }
+        }
+
+        //
+        // GET POSITION
+        // ========================================================================
+        function getPosition(element) {
+            
+            if (element.length) element = element[0];
+            
+            var rect = element.getBoundingClientRect();
+            var doc  = document.documentElement;
+            
+            var scrollLeft = window.scrollX || doc.scrollLeft || body.scrollLeft || 0;
+            var scrollTop  = window.scrollY || doc.scrollTop  || body.scrollTop  || 0;
+            
+            var clientLeft = doc.clientLeft || body.clientLeft || 0;
+            var clientTop  = doc.clientTop  || body.clientTop  || 0;
+            
+            return {
+                x: rect.left + scrollLeft - clientLeft,
+                y: rect.top  + scrollTop  - clientTop
+            };
+        }
+
+        //
+        // LOG TILES
+        // ========================================================================
+        function logTiles() {
+        
+            console.log("\n");
+            zones.forEach(zone => {
+                console.log(zone.id, zone.tiles.map(tile => tile.value));
+            });
+        }
+
+        //
+        // RUN
+        // ========================================================================
+        zones = zoneData.map(zone => new DropZone(zone));
+        tiles = tileData.map((tile, i) => new Tile({ id: "tile-" + i, zone: zones[0], value: tile }));
+
+    }, [])
+    
+
+    return (
+        <>
+            <div className="LetterExcersize">
+                <div className="wrapper">
+                    <h2 className="LetterExcersize__title">{title}</h2>
+                    <div className="LetterExcersize__letters">
+                        <ul id="LetterExcersize__letters">
+                            {
+                                exrsize.map((l) => {
+                                    return(
+                                        <li key={`${l.id}_1`} id={`${l.id}_1`}>
+                                            <span className="tile_1">{l.letter}</span>
+                                        </li>
+                                    )
+                                })
+                            }
+                        </ul>
+                    </div>
+                    <div className="row">
+                        {
+                            exrsize.map((e) => {
+                                return(
+                                    <div key={e.id} className="col-xs-12 col-sm-6 col-md-3">
+                                        <div className="LetterExcersize__image-box">
+                                            <div className="LetterExcersize__image">
+                                                <img src={Image(`saptrangi/${e.img}`)} />
+                                            </div>
+                                            <div className={`LetterExcersize__box LetterExcersize__box--${e.color}`} >
+                                                <div id={e.id}></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <main>
+                <section id="top-bar">
+                    <div id="scroll-box">
+                        <div id="zone-1" className="drop-zone"></div>
+                    </div>
+                </section>
+
+                <section className="content">
+                    <div id="center-panel" drop-zone="center">
+                        <div id="zone-2" className="drop-zone"></div>
+                    </div>
+                </section>
+            </main>
+        </>
+    )
+}
+
+export default LetterExcersize

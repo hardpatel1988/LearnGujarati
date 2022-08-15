@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'shrutiregular';
+    src: url('./fonts/shruti-webfont.eot');
+    src: url('./fonts/shruti-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./fonts/shruti-webfont.woff2') format('woff2'),
+         url('./fonts/shruti-webfont.woff') format('woff'),
+         url('./fonts/shruti-webfont.ttf') format('truetype'),
+         url('./fonts/shruti-webfont.svg#shrutiregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+} 
+
+@font-face {
+    font-family: 'shrutiregular';
+    src: url('./fonts/shrutib-webfont.eot');
+    src: url('./fonts/shrutib-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./fonts/shrutib-webfont.woff2') format('woff2'),
+         url('./fonts/shrutib-webfont.woff') format('woff'),
+         url('./fonts/shrutib-webfont.ttf') format('truetype'),
+         url('./fonts/shrutib-webfont.svg#shrutiregular') format('svg');
+    font-weight: bold;
+    font-style: normal;
+} 

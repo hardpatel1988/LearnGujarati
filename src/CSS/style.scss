@@ -1,0 +1,29 @@
+@import "components/reset";
+
+//Flexgrid
+@import "components/flexboxgrid";
+
+//Components
+@import "components/variable";
+@import "components/mixin";
+@import "components/base";
+@import "components/loader";
+@import "components/spacer";
+@import "components/border";
+@import "components/text";
+@import "components/header";
+@import "components/footer";
+@import "components/boxes";
+@import "components/parasuite";
+@import "components/clouds";
+
+//Saptrangi componetns
+@import "components/saptrangi/LetterOnCloud";
+@import "components/saptrangi/TextBoxWithImage";
+@import "components/saptrangi/abhyas";
+@import "components/saptrangi/LetterExcersize";
+
+//Layout
+@import "components/stories";
+@import "pages/page-alphabets";
+@import "pages/page-saptrangi.scss";

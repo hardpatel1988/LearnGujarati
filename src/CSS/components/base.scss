@@ -1,0 +1,51 @@
+html{
+    overflow-x: hidden;
+}
+
+body{
+    font-family: $fontNunito;
+    font-size: $fontSizeBody;
+    background-color: $bodyBackground;
+    //background-image: url("../../images/footer-bg.png");  
+    background-position: bottom center;
+    background-repeat: no-repeat; 
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-weight: bold;
+}
+
+img{
+    width: auto;
+    max-width: 100%;
+}
+
+.wrapper{
+    width: 100%;
+    max-width: calc(100% - 40px);
+    margin: 0 auto;
+
+    @include breakpoint("small"){
+        max-width: calc(100% - 80px);
+    }
+
+    @include breakpoint("medium"){
+        max-width: calc(100% - 100px);
+    }
+}
+    
+a{
+    text-decoration: none;
+    @include linkTransition;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.round{
+    border-radius: 50%;
+}
+
+.cls-1-contact-us{fill:#1babe2;}

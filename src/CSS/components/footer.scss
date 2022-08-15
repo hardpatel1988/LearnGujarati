@@ -1,0 +1,191 @@
+
+.footer{
+    background-image: url(#{$imagePath}footer-bg-brown.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding-top: 50px;
+    z-index: 0;
+    position: relative;
+
+    &__links{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+
+        a{
+            display: inline-block;
+            margin: 10px 0;
+            color: $footerLink;
+            font-weight: bold;
+            font-size: 26px;
+            text-decoration: none;
+            flex-direction: row;
+            flex: 0 0 100%;
+
+            &:hover{
+                color: $white;
+            }
+
+            
+
+            @include breakpoint("medium"){
+                flex-direction: column;
+                flex: 0 0 auto;
+                margin: 0 40px;
+            }
+        }
+    }
+
+    &__copyright{
+        font-weight: bold;
+        font-size: 26px;
+        color: $footerLink;
+        padding: 30px;
+        border-top: $footerBorder 1px solid;
+
+        a{
+            color: $footerLink;
+            font-weight: bold;
+            font-size: 26px;
+            display: inline-block;
+            margin-left: 10px;
+            text-decoration: none;
+
+            &:hover{
+                color: $white;
+            }
+
+            img{
+                width:90px;
+            }
+        }
+    }
+}
+
+.page-home{
+    .footer{
+        padding-top: 68px;
+    }
+}
+
+.train{
+    background-image: url(#{$imagePath}footer-train-bg-blue.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    height: 196px;
+    display: flex;    
+    position: relative;
+    background-position: center -47px;
+    z-index: 1;
+    margin-top: 0;
+
+    @include breakpoint("small"){
+        height: 296px;
+        background-position: center 18px;
+        margin-top: -90px;
+    }
+
+    @include breakpoint("medium"){
+        height: 404px;
+        background-position: center 60px;
+        margin-top: -130px;
+    }
+
+    @include breakpoint("large"){
+        background-position: top center;
+    }
+
+    @include breakpoint("large"){
+        height: 576px;
+        margin-top: -154px;
+    }
+
+    &__image{
+        background-image: url(#{$imagePath}footer-train.png);
+        background-repeat: no-repeat;
+        background-position: bottom left;
+        width: 100%;
+        position: absolute;
+        height: 100%;    
+        bottom: -35px;
+        background-size: 767px;
+
+        @include breakpoint("small"){
+            background-size: 1024px;
+        }
+
+        @include breakpoint("medium"){
+            background-size: 1365px;
+        }
+
+        @include breakpoint("large"){
+            background-size: 1600px;
+        }
+
+        @include breakpoint("large"){
+            background-size: initial;
+        }
+    }
+
+    &__bg{
+        background-image: url(#{$imagePath}footer-train-bg-green.png);
+        background-repeat: no-repeat;
+        background-position:center -42px;
+        width: 100%;
+        position: absolute;
+        height: 100%;   
+        bottom: -6px;
+
+        @include breakpoint("small"){
+            background-position: center 18px;
+        }
+    
+        @include breakpoint("medium"){
+            background-position: center 60px;
+        }
+    
+        @include breakpoint("large"){
+            background-position: top center;
+            bottom: -85px;
+        }
+    }
+
+    &__signal{
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+
+        img{
+            width: 70px;
+        }            
+
+        @include breakpoint("small"){
+            bottom: 4px;
+            img{
+                width: 94px;
+            }
+        }
+
+        @include breakpoint("medium"){
+            bottom: 19px;
+
+            img{
+                width: 130px;
+            }                
+        }
+
+        @include breakpoint("large"){
+            
+        }
+
+        @include breakpoint("large"){
+            img{
+                width: 200px;
+            }               
+        }
+        
+    }
+}

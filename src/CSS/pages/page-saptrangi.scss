@@ -1,0 +1,44 @@
+.saptrangiDetail{
+    background: #acd7ff;
+
+    &__title{
+        text-align: center;
+        font-size: 40px;
+        color: #000;
+
+        @include breakpoint("small"){
+            font-size: 74px;
+        }
+    }
+
+    &__content{
+        & > .TextBoxWithImage__bg:last-child{
+            margin-bottom: -13px;
+        }
+    }
+}
+
+.SaptrangiListing{
+    &__box{
+        display: block;
+        transition: 0.35s ease-out;
+        margin: 10px 5px 30px;        
+
+        @include breakpoint("medium"){
+            margin: 50px 10px;
+        }
+
+        &:hover{
+            transform: translateY(15px);
+        }
+
+        img{
+            border-radius: 30px;
+            border: #fff 2px solid;
+
+            box-shadow: 1px 0px 36px -1px rgb(0 0 0 / 75%);
+            -webkit-box-shadow: 1px 0px 36px -1px rgb(0 0 0 / 75%);
+            -moz-box-shadow: 1px 0px 36px -1px rgb(0 0 0 / 75%);
+        }        
+    }
+}

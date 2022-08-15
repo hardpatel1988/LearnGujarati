@@ -1,0 +1,96 @@
+.LetterOnCloud{
+    //width: 360px;
+    position: relative;
+    text-align: center;
+
+    &__cloud{
+        position:relative;
+        z-index: 0;
+    }
+
+    &__object{
+        position: absolute;
+        width: 80%;
+        left: 50%;
+        top: -44%;
+        transform: translateX(-50%);
+    }
+
+    &__basket{
+        width:200px;
+        max-width: 100%;
+        top: -12px;
+        position:relative;
+        z-index: -1;
+    }
+
+    &__letter{
+        position: absolute;
+        bottom: 24px;
+        font-size: 74px;
+        left: 50%;
+        transform: translateX(calc(-50% + -8px));
+        //-webkit-text-stroke-width: 2px;
+        //-webkit-text-stroke-color: #fff;
+        color: #000;
+        font-weight: bold;
+
+        &--blue{
+            color: $blue;
+        }
+ 
+        &--green{
+            color: $green;
+        }
+
+        &--orrange{
+            color: $orrange;
+        }
+
+        &--violet{
+            color: $violet;
+        }
+    }
+}
+
+.LetterOnCloudList{
+    display: grid;
+    column-gap: 50px;
+    padding: 50px 0;
+    grid-template-columns: auto auto;
+
+    @include breakpoint("small"){
+        grid-template-columns: auto auto auto auto;
+    }
+
+    .LetterOnCloud{
+        &:first-child,  &:nth-child(2){
+            margin-bottom: 50px;
+            @include breakpoint("small"){
+                margin-bottom: 0;
+            }           
+        }
+        
+        &:nth-child(even){
+            top: 50px;
+        }
+
+        &__letter{
+            bottom:9%;
+            font-size: 50px;
+
+            @include breakpoint("xsmall"){
+                bottom: 7%;
+                font-size: 74px;
+            }   
+            @include breakpoint("small"){
+                bottom: 11%;
+                font-size: 50px;
+            }   
+            @include breakpoint("medium"){
+                bottom: 7%;
+                font-size: 74px;
+            }        
+        }
+    }
+}

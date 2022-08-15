@@ -1,0 +1,210 @@
+.LetterExcersize{
+    text-align: center;
+
+    &__title{
+        color: #000;
+        font-size: 40px;
+        margin-bottom: 30px;
+
+        @include breakpoint("medium"){
+            font-size: 60px;
+        }
+    }
+
+    &__image-box{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+
+    &__image{
+        margin-bottom: 20px;
+
+        @include breakpoint("small"){
+          margin-bottom: 30px;
+        }
+
+        @include breakpoint("medium"){
+          margin-bottom: 50px;
+        }
+
+        img{
+          max-width: 250px;
+        }
+    }
+
+    &__box{
+        width: 100px;
+        height: 100px;
+        background: #fff;
+        border-radius: 20px;
+        margin-bottom: 30px;
+
+        > div{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @include breakpoint("small"){          
+          
+        }
+
+        @include breakpoint("medium"){
+          width: 110px;
+          height: 110px;
+          margin-bottom: 50px;
+        }
+
+        &--blue{
+            border: $blue 2px solid;
+        }
+
+        &--orrange{
+            border: $orrange 2px solid;
+        }
+
+        &--violet{
+            border: $violet 2px solid;
+        }
+
+        &--green{
+            border: $green 2px solid;
+        }
+    }
+
+    &__letters{
+        text-align: center;
+        margin: 0 auto;
+        display: inline-block;
+        margin-bottom: 30px;
+        border: $blue 1px dotted;    
+        display: inline-flex;   
+        justify-content: center;
+        min-height: 80px;
+        flex-wrap: wrap;
+
+        @include breakpoint("medium"){
+          min-height: 120px;
+        }
+
+        > section{
+          margin: 5px;
+
+          @include breakpoint("medium"){
+            margin: 20px;
+
+          }
+        }
+    }
+
+    .letter-container {
+      display: block;
+      display: flex;
+      flex-wrap: wrap;
+
+      @for $i from 2 through 20 {
+        &_#{$i} {
+          display: block;
+          display: flex;
+          flex-wrap: wrap;
+        }
+      }
+    }
+    
+    .tile-wrapper {
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      position: relative;
+
+      @for $i from 2 through 20 {
+        &_#{$i} {
+          width: 100%;
+          height: 100%;
+          align-items: center;
+          display: flex;
+          justify-content: center;
+          position: relative;
+        }
+      }
+    }
+    
+    .tile {
+      background-color: $blue;
+      color: #fafafa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      position: relative;
+      width:70px;
+      height: 70px;
+      cursor: move;
+      box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+
+      @include breakpoint("medium"){
+        width: 80px;
+        height: 80px;
+      }
+      
+
+      &[clone] {
+          position: absolute;
+          visibility: hidden;
+          opacity: 0;
+        }
+
+        &.bottom {
+          background: cornflowerblue;
+        }
+
+        &.center {
+          background-color: $green;
+        }
+
+        @for $i from 2 through 20 {
+          &_#{$i} {
+            background-color: $blue;
+            color: #fafafa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            position: relative;
+            width:70px;
+            height: 70px;
+            cursor: move;
+            box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+      
+            @include breakpoint("medium"){
+              width: 80px;
+              height: 80px;
+            }
+  
+            &[clone] {
+              position: absolute;
+              visibility: hidden;
+              opacity: 0;
+            }
+    
+            &.bottom {
+              background: cornflowerblue;
+            }
+    
+            &.center {
+              background-color: $green;
+            }
+          }
+        }
+      
+    }
+}

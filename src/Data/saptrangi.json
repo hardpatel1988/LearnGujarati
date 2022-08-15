@@ -1,0 +1,457 @@
+{ 
+    "Saptrangi_1" : {
+        "CloudWithLetter" : [
+            {
+                "id" : "letter_1",
+                "color" : "orrange",
+                "objectImg" : "jamrukh.png",
+                "letter" : "જ"
+            },
+            {
+                "id" : "letter_2",
+                "color" : "violet",
+                "objectImg" : "marchu.png",
+                "letter" : "મ"
+            },
+            {
+                "id" : "letter_3",
+                "color" : "green",
+                "objectImg" : "nagaru.png",
+                "letter" : "ન"
+            },
+            {
+                "id" : "letter_4",
+                "color" : "blue",
+                "objectImg" : "ramakadu.png",
+                "letter" : "ર"
+            }
+        ],
+
+        "textBoxWithImage" : {
+            "hasBackgroiund" : false,
+            "textBox_alignment" : "right",
+            "image" : "kids_1.svg",
+            "TextBox": {
+                "title" : "વાંચો",
+                "color" : "blue",
+                "img" : "girl_1.svg",
+                "para" : [
+                    {
+                        "id": "text_1",
+                        "text" : "નમ"
+                    },
+                    {
+                        "id": "text_2",
+                        "text" : "જનમ નમ"
+                    },
+                    {
+                        "id": "text_3",
+                        "text" : "નમન નમ"
+                    },
+                    {
+                        "id": "text_4",
+                        "text" : "મનન નમ"
+                    }
+                ]
+            }
+        },
+
+        
+        "textBoxWithImage_2" : {
+            "hasBackgroiund" : false,
+            "textBox_alignment" : "left",
+            "image" : "boy-with-table.svg",
+            "TextBox": {
+                "title" : "વાંચો",
+                "color" : "orrange",
+                "img" : "girl-with-books.svg",
+                "para" : [
+                    {
+                        "id": "text_1",
+                        "text" : "જમ"
+                    },
+                    {
+                        "id": "text_2",
+                        "text" : "મનન જમ"
+                    },
+                    {
+                        "id": "text_3",
+                        "text" : "નમન જમ"
+                    },
+                    {
+                        "id": "text_4",
+                        "text" : "નરમ નરમ જમ"
+                    }
+                ]
+            }
+        },
+
+        "saptrangi_abhyas" : {
+            "title" : "અભ્યાસ",
+            "box" : [
+                {
+                    "id" : "saptrangi_abhyas_1",
+                    "color" : "blue",
+                    "text": "નજર"
+                },
+                {
+                    "id" : "saptrangi_abhyas_2",
+                    "color" : "green",
+                    "text": "મન"
+                },
+                {
+                    "id" : "saptrangi_abhyas_3",
+                    "color" : "orrange",
+                    "text": "નરમ"
+                },
+                {
+                    "id" : "saptrangi_abhyas_4",
+                    "color" : "violet",
+                    "text": "રજ"
+                },
+                {
+                    "id" : "saptrangi_abhyas_5",
+                    "color" : "blue",
+                    "text": "નર"
+                },
+                {
+                    "id" : "saptrangi_abhyas_6",
+                    "color" : "green",
+                    "text": "જન"
+                }
+            ]
+        },
+
+        "LetterExcersize" : {
+            "title" : "ચિત્ર જોઈને અક્ષર લખો",
+
+            "excersize" : [
+                {
+                    "id" : "excersize_1",
+                    "letter" : "જ",
+                    "img" : "jamfal.png",
+                    "color" : "blue",
+                    "tileConfig" : {
+                        "dropzone" : "drop-zone",
+                        "clone" : "clone-container",
+                        "letter" : "letter-container",
+                        "tiles" : "tile"
+                    },
+                    "tileConfig_drop" : {
+                        "dropzone" : "drop-zone",
+                        "clone" : "clone-container",
+                        "letter" : "letter-container",
+                        "tiles" : "tile_3"
+                    }
+                },
+                {
+                    "id" : "excersize_2",
+                    "letter" : "મ",
+                    "img" : "ramakadu.png",
+                    "color" : "orrange",
+
+                    "tileConfig" : {
+                        "dropzone" : "drop-zone_2",
+                        "clone" : "clone-container_2",
+                        "letter" : "letter-container_2",
+                        "tiles" : "tile_2"
+                    },
+
+                    "tileConfig_drop" : {
+                        "dropzone" : "drop-zone_4",
+                        "clone" : "clone-container_4",
+                        "letter" : "letter-container_4",
+                        "tiles" : "tile_4"
+                    }
+                },
+                {
+                    "id" : "excersize_3",
+                    "letter" : "ન",
+                    "img" : "makai.png",
+                    "color" : "violet",
+
+                    "tileConfig" : {
+                        "dropzone" : "drop-zone_3",
+                        "clone" : "clone-container_3",
+                        "letter" : "letter-container_3",
+                        "tiles" : "tile_3"
+                    },
+                    "tileConfig_drop" : {
+                        "dropzone" : "drop-zone_2",
+                        "clone" : "clone-container_2",
+                        "letter" : "letter-container_2",
+                        "tiles" : "tile_2"
+                    }
+                },
+                {
+                    "id" : "excersize_4",
+                    "letter" : "ર",
+                    "img" : "nal.png",
+                    "color" : "green",
+
+                    "tileConfig" : {
+                        "dropzone" : "drop-zone_4",
+                        "clone" : "clone-container_4",
+                        "letter" : "letter-container_4",
+                        "tiles" : "tile_4"
+                    },
+                    "tileConfig_drop" : {
+                        "dropzone" : "drop-zone_3",
+                        "clone" : "clone-container_3",
+                        "letter" : "letter-container_3",
+                        "tiles" : "tile_3"
+                    }
+                    
+                }
+            ]
+        },
+
+        "textBoxWithImage_with_bg" : {
+            "hasBackgroiund" : true,
+            "backgroiund_class" : "TextBoxWithImage__bg--grass",
+            "textBox_alignment" : "right",
+            "image" : "boy-with-naman.svg",
+            "imageWdith": "30",
+            "TextBox": {
+                "title" : "જોડકણું",
+                "img" : "girls-with-ball.svg",
+                "para" : [
+                    {
+                        "id": "text_1",
+                        "text" : "નમન કરો માતા પિતા ને"
+                    },
+                    {
+                        "id": "text_2",
+                        "text" : "ગુરુજી ને નમન કરો"
+                    },
+                    {
+                        "id": "text_3",
+                        "text" : "પ્રભુ ને કરી નમન"
+                    },
+                    {
+                        "id": "text_4",
+                        "text" : "સૌ ના મેળવો આશીર્વાદ"
+                    }
+                ]
+            }
+        }
+    },
+
+    "Saptrangi_2" : {
+        "CloudWithLetter" : [
+            {
+                "id" : "letter_1",
+                "color" : "orrange",
+                "objectImg" : "jamrukh.png",
+                "letter" : "ગ"
+            },
+            {
+                "id" : "letter_2",
+                "color" : "violet",
+                "objectImg" : "marchu.png",
+                "letter" : "સ"
+            },
+            {
+                "id" : "letter_3",
+                "color" : "green",
+                "objectImg" : "nagaru.png",
+                "letter" : "દ"
+            },
+            {
+                "id" : "letter_4",
+                "color" : "blue",
+                "objectImg" : "ramakadu.png",
+                "letter" : "વ"
+            }
+        ],
+
+        "textBoxWithImage" : {
+            "hasBackgroiund" : false,
+            "textBox_alignment" : "right",
+            "image" : "kids_1.svg",
+            "TextBox": {
+                "title" : "વાંચો",
+                "color" : "blue",
+                "img" : "girl_1.svg",
+                "para" : [
+                    {
+                        "id": "text_1",
+                        "text" : "રમ"
+                    },
+                    {
+                        "id": "text_2",
+                        "text" : "મન રમ"
+                    },
+                    {
+                        "id": "text_3",
+                        "text" : "જગન રમ"
+                    },
+                    {
+                        "id": "text_4",
+                        "text" : "સરસ રમ"
+                    }
+                ]
+            }
+        },
+
+        "LetterExcersize" : {
+            "title" : "ચિત્ર જોઈને અક્ષર લખો",
+
+            "excersize" : [
+                {
+                    "id" : "excersize_1",
+                    "letter" : "દ",
+                    "img" : "jamfal.png",
+                    "color" : "blue",
+                    "tileConfig" : {
+                        "dropzone" : "drop-zone",
+                        "clone" : "clone-container",
+                        "letter" : "letter-container",
+                        "tiles" : "tile"
+                    },
+                    "tileConfig_drop" : {
+                        "dropzone" : "drop-zone",
+                        "clone" : "clone-container",
+                        "letter" : "letter-container",
+                        "tiles" : "tile_3"
+                    }
+                },
+                {
+                    "id" : "excersize_2",
+                    "letter" : "સ",
+                    "img" : "ramakadu.png",
+                    "color" : "orrange",
+
+                    "tileConfig" : {
+                        "dropzone" : "drop-zone_2",
+                        "clone" : "clone-container_2",
+                        "letter" : "letter-container_2",
+                        "tiles" : "tile_2"
+                    },
+
+                    "tileConfig_drop" : {
+                        "dropzone" : "drop-zone_4",
+                        "clone" : "clone-container_4",
+                        "letter" : "letter-container_4",
+                        "tiles" : "tile_4"
+                    }
+                },
+                {
+                    "id" : "excersize_3",
+                    "letter" : "મ",
+                    "img" : "makai.png",
+                    "color" : "violet",
+
+                    "tileConfig" : {
+                        "dropzone" : "drop-zone_3",
+                        "clone" : "clone-container_3",
+                        "letter" : "letter-container_3",
+                        "tiles" : "tile_3"
+                    },
+                    "tileConfig_drop" : {
+                        "dropzone" : "drop-zone_2",
+                        "clone" : "clone-container_2",
+                        "letter" : "letter-container_2",
+                        "tiles" : "tile_2"
+                    }
+                },
+                {
+                    "id" : "excersize_4",
+                    "letter" : "વ",
+                    "img" : "nal.png",
+                    "color" : "green",
+
+                    "tileConfig" : {
+                        "dropzone" : "drop-zone_4",
+                        "clone" : "clone-container_4",
+                        "letter" : "letter-container_4",
+                        "tiles" : "tile_4"
+                    },
+                    "tileConfig_drop" : {
+                        "dropzone" : "drop-zone_3",
+                        "clone" : "clone-container_3",
+                        "letter" : "letter-container_3",
+                        "tiles" : "tile_3"
+                    }                    
+                },
+                {
+                    "id" : "LetterExcersize_2-excersize_1",
+                    "letter" : "ર",
+                    "img" : "jamfal.png",
+                    "color" : "blue",
+                    "tileConfig" : {
+                        "dropzone" : "drop-zone_5",
+                        "clone" : "clone-container_5",
+                        "letter" : "letter-container_5",
+                        "tiles" : "tile_5"
+                    },
+                    "tileConfig_drop" : {
+                        "dropzone" : "drop-zone_5",
+                        "clone" : "clone-container_5",
+                        "letter" : "letter-container_5",
+                        "tiles" : "tile_5"
+                    }
+                },
+                {
+                    "id" : "LetterExcersize_2-excersize_2",
+                    "letter" : "જ",
+                    "img" : "ramakadu.png",
+                    "color" : "orrange",
+
+                    "tileConfig" : {
+                        "dropzone" : "drop-zone_6",
+                        "clone" : "clone-container_6",
+                        "letter" : "letter-container_6",
+                        "tiles" : "tile_6"
+                    },
+
+                    "tileConfig_drop" : {
+                        "dropzone" : "drop-zone_6",
+                        "clone" : "clone-container_6",
+                        "letter" : "letter-container_6",
+                        "tiles" : "tile_6"
+                    }
+                },
+                {
+                    "id" : "LetterExcersize_2-excersize_3",
+                    "letter" : "ગ",
+                    "img" : "makai.png",
+                    "color" : "violet",
+
+                    "tileConfig" : {
+                        "dropzone" : "drop-zone_7",
+                        "clone" : "clone-container_7",
+                        "letter" : "letter-container_7",
+                        "tiles" : "tile_7"
+                    },
+                    "tileConfig_drop" : {
+                        "dropzone" : "drop-zone_7",
+                        "clone" : "clone-container_7",
+                        "letter" : "letter-container_7",
+                        "tiles" : "tile_7"
+                    }
+                },
+                {
+                    "id" : "LetterExcersize_2-excersize_4",
+                    "letter" : "ન",
+                    "img" : "nal.png",
+                    "color" : "green",
+
+                    "tileConfig" : {
+                        "dropzone" : "drop-zone_8",
+                        "clone" : "clone-container_8",
+                        "letter" : "letter-container_8",
+                        "tiles" : "tile_8"
+                    },
+                    "tileConfig_drop" : {
+                        "dropzone" : "drop-zone_8",
+                        "clone" : "clone-container_8",
+                        "letter" : "letter-container_8",
+                        "tiles" : "tile_8"
+                    }
+                    
+                }
+            ]
+        }
+    }
+}
